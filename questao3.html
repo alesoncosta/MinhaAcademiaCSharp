@@ -1,0 +1,45 @@
+<!--3 - Crie uma página com uma lista (select - RadioButton) com 4 opções de cores. Ao selecionar uma opção de cor,
+altere o plano de fundo da página para a cor especifica.-->
+
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mudar Cor de Fundo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        select, label {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Escolha uma Cor</h1>
+
+    <label>
+        <input type="radio" name="cor" value="red" onchange="changeBackgroundColor(this.value)"> Vermelho
+    </label>
+    <label>
+        <input type="radio" name="cor" value="green" onchange="changeBackgroundColor(this.value)"> Verde
+    </label>
+    <label>
+        <input type="radio" name="cor" value="blue" onchange="changeBackgroundColor(this.value)"> Azul
+    </label>
+    <label>
+        <input type="radio" name="cor" value="yellow" onchange="changeBackgroundColor(this.value)"> Amarelo
+    </label>
+
+    <script>
+        function changeBackgroundColor(color) {
+            document.body.style.backgroundColor = color;
+        }
+    </script>
+
+</body>
+</html>

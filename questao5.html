@@ -1,0 +1,41 @@
+<!--5-Crie um formulário de seleção de itens com checkbox. O formulário deve possuir um botão desabilitado. O botão
+só se torna clicável quando tiver pelo menos 2 checkboxs marcado.-->
+
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário com Checkboxs</title>
+</head>
+<body>
+
+    <form id="meuFormulario">
+        <input type="checkbox" id="item1" onchange="verificarCheckboxes()"> Item 1<br>
+        <input type="checkbox" id="item2" onchange="verificarCheckboxes()"> Item 2<br>
+        <input type="checkbox" id="item3" onchange="verificarCheckboxes()"> Item 3<br>
+
+        <button type="button" id="meuBotao" disabled onclick="clicarBotao()">Clique Aqui</button>
+    </form>
+
+    <script>
+        function verificarCheckboxes() {
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            var botao = document.getElementById('meuBotao');
+
+            var marcados = 0;
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    marcados++;
+                }
+            }
+
+            botao.disabled = marcados < 2;
+        }
+
+        function clicarBotao() {
+            alert("Boa, pequeno gafanhoto!");
+        }
+    </script>
+
+</body>
+</html>

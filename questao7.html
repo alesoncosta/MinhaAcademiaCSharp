@@ -1,0 +1,80 @@
+<!--7- Crie um botão + (mais) e outro - (menos) na mesma página do exercicio anterior. Esses botòes aumentam
+diminuem o tamanho da fonte, respectivamente.-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alterar Cores e Tamanho da Fonte</title>
+    <style>
+      #meuParagrafo {
+        font-family: Arial, sans-serif;
+        padding: 10px;
+        border: 1px solid #ccc;
+        width: 300px;
+        transition: font-size 0.3s ease;
+      }
+
+      #botoes {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="meuParagrafo">
+      <p>- Meu sonho é ganhar 50mil igual o meu irmão.</p>
+      <p>- Seu irmão ganha 50mil?</p>
+      <p>- Não, também é o sonho dele.</p>
+    </div>
+
+    <div id="botoes">
+      <button onclick="trocarCorFonte()">Trocar Cor da Fonte</button>
+      <button onclick="trocarCorFundo()">Trocar Cor do Fundo</button>
+      <button onclick="resetarCores()">Resetar Cores</button>
+      <button onclick="aumentarFonte()">+</button>
+      <button onclick="diminuirFonte()">-</button>
+    </div>
+
+    <script>
+      var corFonteBranca = true;
+      var corFundoBranco = true;
+      var tamanhoFonte = 16;
+
+      function trocarCorFonte() {
+        var paragrafo = document.getElementById("meuParagrafo");
+        corFonteBranca = !corFonteBranca;
+        paragrafo.style.color = corFonteBranca ? "black" : "white";
+      }
+
+      function trocarCorFundo() {
+        var paragrafo = document.getElementById("meuParagrafo");
+        corFundoBranco = !corFundoBranco;
+        paragrafo.style.backgroundColor = corFundoBranco ? "black" : "white";
+      }
+
+      function resetarCores() {
+        var paragrafo = document.getElementById("meuParagrafo");
+        paragrafo.style.color = "black";
+        paragrafo.style.backgroundColor = "white";
+        corFonteBranca = true;
+        corFundoBranco = true;
+      }
+
+      function aumentarFonte() {
+        tamanhoFonte += 2;
+        aplicarTamanhoFonte();
+      }
+
+      function diminuirFonte() {
+        tamanhoFonte -= 2;
+        aplicarTamanhoFonte();
+      }
+
+      function aplicarTamanhoFonte() {
+        var paragrafo = document.getElementById("meuParagrafo");
+        paragrafo.style.fontSize = tamanhoFonte + "px";
+      }
+    </script>
+  </body>
+</html>

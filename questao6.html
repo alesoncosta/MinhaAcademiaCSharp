@@ -1,0 +1,54 @@
+<!--6-Crie um parágrafo com um texto como conteúdo. Crie 4 botões. Dois para trocar a cor da fonte, de branco para
+preto e vice-versa e outros dois para fazer o mesmo com o fundo do parágrafo. Use divs se julgar necessário.-->
+
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alterar Cores</title>
+    <style>
+        #meuParagrafo {
+            font-family: Arial, sans-serif;
+            padding: 10px;
+            border: 1px solid #ccc;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="meuParagrafo"><p>- Meu sonho é ganhar 50mil igual o meu irmão.</p> <p>- Seu irmão ganha 50mil?</p> <p>- Não, também é o sonho dele.</p></div>
+
+    <div id="botoes">
+        <button onclick="trocarCorFonte()">Trocar Cor da Fonte</button>
+        <button onclick="trocarCorFundo()">Trocar Cor do Fundo</button>
+        <button onclick="resetarCores()">Resetar Cores</button>
+    </div>
+
+    <script>
+        var corFonteBranca = true;
+        var corFundoBranco = true;
+
+        function trocarCorFonte() {
+            var paragrafo = document.getElementById("meuParagrafo");
+            corFonteBranca = !corFonteBranca;
+            paragrafo.style.color = corFonteBranca ? "black" : "white";
+        }
+
+        function trocarCorFundo() {
+            var paragrafo = document.getElementById("meuParagrafo");
+            corFundoBranco = !corFundoBranco;
+            paragrafo.style.backgroundColor = corFundoBranco ? "black" : "white";
+        }
+
+        function resetarCores() {
+            var paragrafo = document.getElementById("meuParagrafo");
+            paragrafo.style.color = "black";
+            paragrafo.style.backgroundColor = "white";
+            corFonteBranca = true;
+            corFundoBranco = true;
+        }
+    </script>
+
+</body>
+</html>
