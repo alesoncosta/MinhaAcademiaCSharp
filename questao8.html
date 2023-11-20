@@ -1,0 +1,89 @@
+<!--8- Ainda continuando no exercício 6, faça um botão que transforme todo o texto do parágrafo em maiúscula, e outro
+em minúscula.-->
+
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alterar Cores, Tamanho da Fonte e Texto</title>
+    <style>
+        #meuParagrafo {
+            font-family: Arial, sans-serif;
+            padding: 10px;
+            border: 1px solid #ccc;
+            width: 300px;
+            transition: font-size 0.3s ease;
+        }
+
+        #botoes {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="meuParagrafo"><p>- Meu sonho é ganhar 50mil igual o meu irmão.</p> <p>- Seu irmão ganha 50mil?</p> <p>- Não, também é o sonho dele.</p></div>
+
+    <div id="botoes">
+        <button onclick="trocarCorFonte()">Trocar Cor da Fonte</button>
+        <button onclick="trocarCorFundo()">Trocar Cor do Fundo</button>
+        <button onclick="resetarCores()">Resetar Cores</button>
+        <button onclick="aumentarFonte()">+</button>
+        <button onclick="diminuirFonte()">-</button>
+        <button onclick="transformarMaiuscula()">Maiúscula</button>
+        <button onclick="transformarMinuscula()">Minúscula</button>
+    </div>
+
+    <script>
+        var corFonteBranca = true;
+        var corFundoBranco = true;
+        var tamanhoFonte = 16;
+
+        function trocarCorFonte() {
+            var paragrafo = document.getElementById("meuParagrafo");
+            corFonteBranca = !corFonteBranca;
+            paragrafo.style.color = corFonteBranca ? "black" : "white";
+        }
+
+        function trocarCorFundo() {
+            var paragrafo = document.getElementById("meuParagrafo");
+            corFundoBranco = !corFundoBranco;
+            paragrafo.style.backgroundColor = corFundoBranco ? "black" : "white";
+        }
+
+        function resetarCores() {
+            var paragrafo = document.getElementById("meuParagrafo");
+            paragrafo.style.color = "black";
+            paragrafo.style.backgroundColor = "white";
+            corFonteBranca = true;
+            corFundoBranco = true;
+        }
+
+        function aumentarFonte() {
+            tamanhoFonte += 2;
+            aplicarTamanhoFonte();
+        }
+
+        function diminuirFonte() {
+            tamanhoFonte -= 2;
+            aplicarTamanhoFonte();
+        }
+
+        function aplicarTamanhoFonte() {
+            var paragrafo = document.getElementById("meuParagrafo");
+            paragrafo.style.fontSize = tamanhoFonte + "px";
+        }
+
+        function transformarMaiuscula() {
+            var paragrafo = document.getElementById("meuParagrafo");
+            paragrafo.innerText = paragrafo.innerText.toUpperCase();
+        }
+
+        function transformarMinuscula() {
+            var paragrafo = document.getElementById("meuParagrafo");
+            paragrafo.innerText = paragrafo.innerText.toLowerCase();
+        }
+    </script>
+
+</body>
+</html>
